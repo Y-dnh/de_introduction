@@ -31,11 +31,9 @@ class Config:
     mask_box_ratio: MaskBoxRatioConfig = MaskBoxRatioConfig()
     visualization: VisualizationConfig = VisualizationConfig()
 
-
-config = Config()
-
+def create_config():
+    return Config()
 
 if __name__ == "__main__":
     from pprint import pprint
-    config = Config()
-    pprint(dir(config))
+    pprint(dir(create_config()))
