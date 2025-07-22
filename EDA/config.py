@@ -22,7 +22,7 @@ class VisualizationConfig:
 
 @dataclass
 class Config:
-    dataset_dir: Path = Path("C:/Users/user/Desktop/pascal_voc/")
+    dataset_dir: Path = Path("C:/Users/user/Desktop/coco/")
     output_dir: Path = Path("output")
 
     classes: tuple[str] = ("Person", "Pet", "Car")
