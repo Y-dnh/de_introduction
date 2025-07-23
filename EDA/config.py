@@ -4,17 +4,17 @@ from dataclasses import dataclass, field
 
 @dataclass
 class BBoxConfig:
-    min_pct: float = 0.01
-    max_pct: float = 0.80
+    min_pct = [0.001, 0.1, 0.8]
+    max_pct = [0.005, 0.8, 1]
 
-@dataclass
+@ dataclass
 class MaskBoxRatioConfig:
     min: float = 0.2
     max: float = 1.0
 
 @dataclass
 class VisualizationConfig:
-    n_examples: int = 5
+    n_examples: int = 10
     histogram_bins: int = 20
     figure_size: tuple[int, int] = (12, 8)
     dpi: int = 100
