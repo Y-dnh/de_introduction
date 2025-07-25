@@ -1,0 +1,29 @@
+name: yolo-object-detection-env
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+
+  # Core Libraries
+  - numpy=1.26.4
+  - pandas
+  - scikit-learn=1.6.1
+
+  # Utilities
+  - tqdm
+  - pyyaml
+  - opencv # Let conda find a compatible version to avoid conflicts
+
+  # Plotting & Image Processing
+  - matplotlib=3.9.2
+  - seaborn
+  - pillow=11.2.1
+
+  # Pip-installed packages
+  - pip:
+    - ultralytics
+    - fiftyone==1.7.0
+    - pycocotools

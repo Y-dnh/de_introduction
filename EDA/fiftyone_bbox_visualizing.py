@@ -1,7 +1,12 @@
 import fiftyone as fo
 
+def launch_fiftyone_bbox_visualizing(config):
+    """
+    Launches FiftyOne to visualize bounding boxes on a COCO-annotated dataset.
 
-def launcg_fiftyone_bbox_visualizing(config):
+    Args:
+        config: A configuration object containing paths to the dataset and annotation files.
+    """
 
     data_path= config.dataset_dir / 'test'
     labels_path= config.dataset_dir / "annotations/instances_test.json"
@@ -20,22 +25,34 @@ if __name__ == '__main__':
     from config import create_config
 
     config = create_config()
-    launcg_fiftyone_bbox_visualizing(config)
+    launch_fiftyone_bbox_visualizing(config)
+
 
 # FilterLabels, detection, ..., True, False
-# {
-#   "$and": [
-#     {
-#       "$gte": [
-#         "$$this.bbox_area",
-#         0.002
-#       ]
-#     },
-#     {
-#       "$lte": [
-#         "$$this.bbox_area",
-#         0.0025
-#       ]
-#     }
-#   ]
-# }
+"""
+🔎 Example of using a custom bounding box area filter inside the GUI (Filter > detections):
+
+This Mongo-style expression filters out detections with `bbox_area` between 0.2% and 0.25% 
+of the image area:
+
+{
+  "$and": [
+    {
+      "$gte": [
+        "$$this.bbox_area",
+        0.002
+      ]
+    },
+    {
+      "$lte": [
+        "$$this.bbox_area",
+        0.0025
+      ]
+    }
+  ]
+}
+
+Note:
+- `bbox_area` is not automatically present.
+- You’ll need to manually compute and add it (e.g., via a stage or a script).
+"""

@@ -1,0 +1,12 @@
+numpy==1.26.4
+pandas
+scikit-learn==1.6.1
+tqdm
+pyyaml
+opencv-python==4.7.0
+matplotlib==3.9.2
+seaborn
+pillow==11.2.1
+ultralytics
+fiftyone==1.7.0
+pycocotools

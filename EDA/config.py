@@ -3,14 +3,12 @@ from dataclasses import dataclass, field
 
 
 @dataclass
-class BBoxConfig:
+class BBoxConfig:  # Configuration for filtering bounding boxes based on relative size (to image area)
     min_pct = [0.001, 0.1, 0.8]
     max_pct = [0.005, 0.8, 1]
+    min_pct = [0.0001, 0.001, 0.005, 0.01, 0.05, 0.1, ]
+    max_pct = [0.001, 0.0025, 0.01, 0.05, 0.1, 0.7, ]
 
-@ dataclass
-class MaskBoxRatioConfig:
-    min: float = 0.2
-    max: float = 1.0
 
 @dataclass
 class VisualizationConfig:
@@ -28,7 +26,6 @@ class Config:
     classes: tuple[str] = ("Person", "Pet", "Car")
 
     bbox: BBoxConfig = BBoxConfig()
-    mask_box_ratio: MaskBoxRatioConfig = MaskBoxRatioConfig()
     visualization: VisualizationConfig = VisualizationConfig()
 
 def create_config():
