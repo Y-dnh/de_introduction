@@ -4,10 +4,8 @@ from dataclasses import dataclass, field
 
 @dataclass
 class BBoxConfig:  # Configuration for filtering bounding boxes based on relative size (to image area)
-    min_pct = [0.001, 0.1, 0.8]
-    max_pct = [0.005, 0.8, 1]
-    min_pct = [0.0001, 0.001, 0.005, 0.01, 0.05, 0.1, ]
-    max_pct = [0.001, 0.0025, 0.01, 0.05, 0.1, 0.7, ]
+    min_pct = [0.0001, 0.0005, 0.001,  0.0025, 0.005, 0.01, 0.05, 0.1, 0.7, 0.8, 0.9]
+    max_pct = [0.0005, 0.001,  0.0025, 0.005,  0.01,  0.05, 0.1,  0.7, 0.8, 0.9, 1.0]
 
 
 @dataclass
@@ -20,8 +18,8 @@ class VisualizationConfig:
 
 @dataclass
 class Config:
-    dataset_dir: Path = Path("C:/Users/user/Desktop/coco/")
-    output_dir: Path = Path("output")
+    dataset_dir: Path = Path("C:/Users/user/Desktop/pascal_voc/")
+    output_dir: Path = Path("output_pascal_voc")
 
     classes: tuple[str] = ("Person", "Pet", "Car")
 

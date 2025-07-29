@@ -37,10 +37,6 @@ if __name__ == "__main__":
     # For simple script execution without command line args
     config = create_config()
 
-    # Choose what to run (modify as needed):
-    RUN_EXAMPLES = True
-    RUN_STATS = True
-
     # Create output directory
     Path(config.output_dir).mkdir(parents=True, exist_ok=True)
 
